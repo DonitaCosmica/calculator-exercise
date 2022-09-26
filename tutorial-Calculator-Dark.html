@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Tutorial: Calculator-Dark - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-DOM-Calculator.html">DOM-Calculator</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Calculator-Dark.html">Calculator-Dark</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Tutorial: Calculator-Dark</h1>
+    
+
+    <section>
+
+<header>
+    
+
+    <h2>Calculator-Dark</h2>
+</header>
+
+<article>
+    <h1>Project Explanation</h1>
+<h2>HTML Code</h2>
+<pre class="prettyprint source lang-html"><code>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;title>Calculator | Javascript Mini Project&lt;/title>
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;>
+&lt;/head>
+&lt;body>
+    &lt;div id=&quot;toggleBtn&quot;>&lt;/div>
+    &lt;div class=&quot;calculator&quot;>
+        &lt;div class=&quot;buttons&quot;>
+            &lt;h2 id=&quot;value&quot;>&lt;/h2>
+            &lt;span id=&quot;clear&quot;>Clear&lt;/span>
+            &lt;span>/&lt;/span>
+            &lt;span>*&lt;/span>
+            &lt;span>7&lt;/span>
+            &lt;span>8&lt;/span>
+            &lt;span>9&lt;/span>
+            &lt;span>-&lt;/span>
+            &lt;span>4&lt;/span>
+            &lt;span>5&lt;/span>
+            &lt;span>6&lt;/span>
+            &lt;span id=&quot;plus&quot;>+&lt;/span>
+            &lt;span>1&lt;/span>
+            &lt;span>2&lt;/span>
+            &lt;span>3&lt;/span>
+            &lt;span>0&lt;/span>
+            &lt;span>00&lt;/span>
+            &lt;span>.&lt;/span>
+            &lt;span id=&quot;equal&quot;>=&lt;/span>
+        &lt;/div>
+    &lt;/div>
+    &lt;script src=&quot;index.js&quot;>&lt;/script>
+&lt;/body>
+&lt;/html>
+</code></pre>
+<h2>CSS Code</h2>
+<pre class="prettyprint source lang-css"><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #edf1f4;
+}
+
+.dark {
+    background: #282c2f;
+}
+
+.calculator {
+    position: relative;
+    width: 340px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), 
+    -15px -15px 20px #fffb;
+}
+
+.dark > .calculator {
+    background: #33393e;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25),
+    -15px -15px 20px rgba(255, 255, 255, 0.1);
+}
+
+.calculator > .buttons {
+    position: relative;
+    display: grid;
+}
+
+.calculator > .buttons > #value {
+    position: relative;
+    grid-column: span 4;
+    user-select: none;
+    overflow: none;
+    width: 100%;
+    text-align: end;
+    color: #5166d6;
+    height: 100px;
+    line-height: 100px;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), 
+    inset -5px -5px 20px #fff;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 0 20px;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.dark > .calculator > .buttons > #value {
+    color: #eee;
+    box-shadow: inset 15px 15px 20px rgba(0, 0, 0, 0.5),
+    inset -15px -15px 20px rgba(255, 255, 255, 0.1);
+}
+
+.calculator > .buttons > span {
+    position: relative;
+    padding: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), 
+    -5px -5px 20px #fff;
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #666;
+    border: 2px solid #edf1f4;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), 
+    -5px -5px 10px #fff;
+    border-radius: 10px;
+}
+
+.dark > .calculator > .buttons > span {
+    color: #eee;
+    border: 2px solid #333;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25),
+    -5px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.calculator > .buttons > span:active {
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 10px #fff;
+    color: #f44336;
+}
+
+.dark > .calculator > .buttons > span:active {
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 10px #fff;
+}
+
+.calculator > .buttons > span#clear {
+    grid-column: span 2;
+    background: #f44336;
+    color: #fff;
+    border: 2px solid #edf1f4;
+}
+
+.calculator > .buttons > span#plus {
+    grid-row: span 2;
+    background: #31a935;
+    color: #fff;
+    border: 2px solid #edf1f4;
+}
+
+.calculator > .buttons > span#equal {
+    background: #2196f3;
+    color: #fff;
+    border: 2px solid #edf1f4;
+}
+
+.dark > .calculator > .buttons > span#clear,
+.dark > .calculator > .buttons > span#plus,
+.dark > .calculator > .buttons > span#equal {
+    border: 2px solid #eee;
+}
+
+.calculator > .buttons > span#equal:active,
+.calculator > .buttons > span#plus:active,
+.calculator > .buttons > span#clear:active {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px #fff,
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dark > .calculator > .buttons > span#clear:active,
+.dark > .calculator > .buttons > span#plus:active,
+.dark > .calculator > .buttons > span#equal:active {
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#toggleBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    border: 2px solid #edf1f4;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px #fff;
+}
+
+.dark > #toggleBtn {
+    background: #edf1f4;
+    border: 2px solid #333;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25),
+    -5px -5px 10px rgba(255, 255, 255, 0.25);
+}
+</code></pre>
+<p>When you copy this html and css code, you will have the design of the calcutator in your browser. It will look something like this:</p>
+<p><img src="/img/Calculator-img.png" alt="Calculator-original-mode"></p>
+<p>This is with the dark-mode:</p>
+<p><img src="/img/Calculator-dark-mode.png" alt="Calculator-dark-mode"></p>
+<h2>JAVASCRIPT Tutorial</h2>
+<p>The first thing you must do is select the importan elemnts of that calculator, like the buttons, the display (it is where the result will show), the button that changes the color mode and the body element as we want to change all the application to a dark-mode we have to get that body element.</p>
+<p>We can select a html element by different ways.
+If we want to select it from its classname, we have to this:</p>
+<pre class="prettyprint source lang-js"><code>const firstOption = document.getElementsByClassName('NameClassElement');
+const secondOption = document.querySelector('.NameClassElement');
+</code></pre>
+<p>Then if it's from its id, we do this:</p>
+<pre class="prettyprint source lang-js"><code>const firstOption = document.getElementById('NameClassElement');
+const secondOption = document.querySelector('#NameClassElement');
+</code></pre>
+<p>And if it's a html element, we do this:</p>
+<pre class="prettyprint source lang-js"><code>const body = document.querySelector('body');
+</code></pre>
+<p>But if we want to select several elements, so do this:</p>
+<pre class="prettyprint source lang-js"><code>// html element
+const btn = document.querySelectorAll('span');
+// className html element
+const btn = document.querySelectorAll('.span');
+// id html element
+const btn = document.querySelectorAll('#span');
+</code></pre>
+<p>Aplyiing that in this project, we got to select thsi elements of the html code:</p>
+<pre class="prettyprint source lang-js"><code>const btn = document.querySelectorAll('span');
+const value = document.getElementById('value');
+const toggleBtn = document.getElementById('toggleBtn');
+const body = document.querySelector('body');
+</code></pre>
+<p>In this case, if we want to use several elements we must go through one by one, we could do this with a for(), imagine that this is an array of elements and we select the value of that button.</p>
+<p>Then depending the value of the button we can concatenate each value, but if is pressed the button &quot;=&quot; we could evaluate that string of values an show that result or if we want to clear we delete the string of the display.</p>
+<p>So we could do domething like this:</p>
+<pre class="prettyprint source lang-js"><code>for(let i = 0; i &lt; btn.length; i++) {
+    btn[i].addEventListener('click', function() {
+        if(this.innerHTML == &quot;=&quot;) {
+            if(value != null) value.innerHTML = eval(value.innerHTML);
+        } else {
+            if(this.innerHTML == &quot;Clear&quot;) {
+                if(value != null) value.innerHTML = &quot;&quot;;
+            } else {
+                if(value != null) value.innerHTML += this.innerHTML;
+            }
+        }
+    });
+}
+</code></pre>
+<p>Finally we got to change the color mode, so we indicate that we press the toggleBtn we change to dark-mode and when it is pressed again in returns to the original mode, so we have to add a new clas called &quot;dark&quot;, for the css file detects that and changes the background and the calculator color.</p>
+<p>So do this:</p>
+<pre class="prettyprint source lang-js"><code>if(toggleBtn != null){
+    toggleBtn.onclick = function(){
+        body?.classList.toggle('dark');
+    }
+}
+</code></pre>
+<p>And that's how you do a calculator in javascript.</p>
+</article>
+
+</section>
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Mon Sep 26 2022 01:25:33 GMT-0500 (Nordamerikanische Inland-Sommerzeit) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
